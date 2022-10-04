@@ -15,6 +15,21 @@ $nav-font: 'Barlow Condensed', sans-serif;
     box-sizing: border-box;
 }
 
+#home-image{
+    background-image: url(./assets/home/background-home-desktop.jpg);
+}
+
+#destination-image{
+    background-image: url(./assets/destination/background-destination-desktop.jpg);
+}
+
+#crew-image{
+    background-image: url(./assets/crew/background-crew-desktop.jpg);
+}
+
+#tech-image{
+    background-image: url(./assets/technology/background-technology-desktop.jpg);
+}
 .App {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -22,9 +37,7 @@ $nav-font: 'Barlow Condensed', sans-serif;
     grid-template-areas:
         'header header'
         'content content';
-    // background-image: url(./assets/home/background-home-desktop.jpg);
-    // background-image: url(./assets/destination/background-destination-desktop.jpg);
-    background-image: url(./assets/crew/background-crew-desktop.jpg);
+    background-image: url(./assets/home/background-home-desktop.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
@@ -56,7 +69,7 @@ $nav-font: 'Barlow Condensed', sans-serif;
         backdrop-filter: blur(8px);
         -webkit-backdrop-filter: blur(8px);
         position: relative;
-
+        
         ul {
             @include flex($justify-content-default: space-around);
             width: 80%;
@@ -65,6 +78,7 @@ $nav-font: 'Barlow Condensed', sans-serif;
                 list-style-type: none;
                 display: flex;
                 gap: 5px;
+                cursor: pointer;
 
                 a {
                     font-size: $primary-size;
@@ -80,14 +94,10 @@ $nav-font: 'Barlow Condensed', sans-serif;
 
                 }
 
-                .active::after {
-                    position: absolute;
-                    width: 60px;
-                    content: '';
-                    height: 2px;
-                    background-color: $primary-num;
-                    bottom: 0;
-                    left: 100px;
+
+                .active{
+                    font-size: 16px;
+                    color: $primary-num;
                 }
             }
         }
@@ -138,7 +148,7 @@ $nav-font: 'Barlow Condensed', sans-serif;
         @include flex;
         align-items: flex-end;
 
-        span {
+        a {
             border-radius: 50%;
             width: 240px;
             height: 240px;
@@ -151,9 +161,12 @@ $nav-font: 'Barlow Condensed', sans-serif;
             cursor: pointer;
             font-family: 'Lusitana', serif;
             transition: all .5s ease;
+            text-decoration: none;
 
             &:hover {
                 box-shadow: 0 8px 40px 0 white;
+                width: 245px;
+                height: 245px;
             }
         }
     }
@@ -259,9 +272,19 @@ $nav-font: 'Barlow Condensed', sans-serif;
                     cursor: pointer;
                     font-family: $nav-font;
                     position: relative;
-
                 }
 
+                .activePlanet::after{
+                    position: absolute;
+                    content: "";
+                    background-color: lavender;
+                    height: 3px;
+                    bottom: 10px;
+                    left: 0;
+                    width: 100%;
+                }
+                
+               
             }
 
             h3{
@@ -309,23 +332,6 @@ $nav-font: 'Barlow Condensed', sans-serif;
     }
 }
 
-
-.active::after{
-    position: absolute;
-    content: "";
-    background-color: $primary-text;
-    width: 100%;
-    height: 2px;
-    bottom: 10px;
-    left: 0;
-}
-
-.activeCrew{
-    background-color: $primary-text;
-    width: 15px;
-    height: 15px;
-    background-color: slateblue
-}
 
 
 
@@ -391,10 +397,17 @@ $nav-font: 'Barlow Condensed', sans-serif;
 
                     &:hover{
                         background-color: $primary-text;
-                        width: 16px;
-                        height: 16px;
+                        width: 13px;
+                        height: 13px;
                     }
                 }
+
+                .activeCrew{
+                    background-color: $primary-text;
+                    width: 15px;
+                    height: 15px;
+                }
+                
             }
         }
 
@@ -405,9 +418,105 @@ $nav-font: 'Barlow Condensed', sans-serif;
             img{
                 width: 400px;
                 height: 500px;
-       
             }
         }
     }
 }
 
+
+// Technology Section
+.Technology{
+    @extend %navs-shared;
+}
+
+.technology-container{
+    @extend %container-shared;
+
+    .space-launch{
+        @extend %intro-shared;
+        align-items: flex-start;
+
+        span{
+            @extend %intro-span-shared;
+        }
+
+        p{
+            @extend %intro-para-shared;
+            word-spacing: 8px;
+        }
+    }
+
+    .technology-cover{
+        display: grid;
+        grid-template-columns: 120px 450px 1fr;
+        height: 300px;
+
+        nav{
+            height: 260px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            
+            span{
+                color: lavender;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                border: .1px solid white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                font-size: 20px;
+                transition: all .5s ease;
+
+                &:hover{
+                    background-color: lavender;
+                    color: black;
+                }
+            }
+
+            .activeTech{
+                background-color: lavender;
+                color: black;
+            }
+        }
+
+        .cover{
+            height: 260px;
+            display: grid;
+            grid-template-rows: 30px 1fr 1fr;
+
+            span{
+                @extend %intro-para-shared;
+                font-family: 'Barlow Semi Condensed', sans-serif;
+                color: rgb(128, 139, 152);
+                font-size: 14px;
+            }
+
+            h3{
+                @extend %main-topic-shared;
+                font-size:2.7rem;
+                word-spacing: 5px;
+            }
+
+            p{
+                @extend %main-text-shared;
+                width: 80%;
+                line-height: 28px;
+            }
+        }
+
+        .space-craft{
+            margin-top: -70px;
+            display: flex;
+            justify-content: flex-end;
+            img{
+                object-fit: cover;
+                width: 400px;
+                height: 400px;
+            }
+        }
+    }
+}

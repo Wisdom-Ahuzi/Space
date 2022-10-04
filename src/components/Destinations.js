@@ -44,7 +44,7 @@ const Destinations = () => {
                     <div className="planet-nav">
                         {destinationsData.map(destination => {
                             return(
-                                <span key={uuidv4()}  onClick = {() => handleClick(destination)} className = {planets.planet === destination.name ? "active" : ""}>{destination.name}</span>
+                                <span key={uuidv4()}  onClick = {() => handleClick(destination)} className = {planets.planet === destination.name ? "activePlanet" : ""}>{destination.name}</span>
                             )
                         })}
                     </div>

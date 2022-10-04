@@ -14,8 +14,9 @@ const Crew = () => {
 
     const crewsData = crews.crew;
 
+
     const handleClick = (crew) => {
-        setCrewsId((crewId) => {
+        setCrewsId(() => {
             return({
                 job:crew.role,
                 cname:crew.name,
@@ -46,15 +47,14 @@ const Crew = () => {
                         <nav>
                             {crewsData.map(crew => {
                                 return(
-                                    <span key={uuidv4()}  onClick={() => handleClick(crew)} className = {crewsId.cname === crew.name ? console.log("active") : console.log("Not active")} ></span>
+                                    <span key={uuidv4()}  onClick={() => handleClick(crew)} className = {crewsId.cname === crew.name ? "activeCrew" : ""} ></span>
                                 )
                             })}
                         </nav>
                     </div>
 
                     <div className="crew-personnel">
-                        <img src={crewsId.face} alt={crewsId.cname} />
-                    
+                        <img key={uuidv4()} src={crewsId.face} />
                     </div>
                 </div>
             </div>
