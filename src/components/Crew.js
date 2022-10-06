@@ -21,7 +21,7 @@ const Crew = () => {
                 job:crew.role,
                 cname:crew.name,
                 about:crew.bio,
-                face:crew.images.png
+                face:require("../assets/crew/" + crew.images.png)
             })
         })
     }

@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 
 const Home = ({idSet}) => {
 
-    const handleTechBackground = () => {
-        idSet('tech-image');        
+    const handleDestinationBackground = () => {
+        idSet('destination-image');        
     }
 
     return (
@@ -16,7 +16,7 @@ const Home = ({idSet}) => {
                 </div>
 
                 <div className="home-explore" >
-                    <NavLink to="/Technology" onClick={handleTechBackground}>EXPLORE</NavLink >
+                    <NavLink to="/Destinations" onClick={handleDestinationBackground}>EXPLORE</NavLink >
                 </div>
             </div>
         </div>

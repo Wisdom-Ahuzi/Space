@@ -14,7 +14,7 @@ const Technology = () => {
     const handleTechClick = (tech) => {
         setTechId({
             name:tech.name,
-            image:tech.images,
+            image:require("../assets/technology/"+tech.images.portrait),
             description:tech.description
         })
     }

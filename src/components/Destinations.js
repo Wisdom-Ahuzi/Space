@@ -17,7 +17,7 @@ const Destinations = () => {
     
     const handleClick = (destination) => {
         setPlanets({
-            image:destination.images.webp,
+            image: require("../assets/destination/" + destination.images.png),
             planet:destination.name,
             planetText:destination.description,
             averageDistance:destination.distance,
@@ -44,13 +44,11 @@ const Destinations = () => {
                     <div className="planet-nav">
                         {destinationsData.map(destination => {
                             return(
-                                <span key={uuidv4()}  onClick = {() => handleClick(destination)} className = {planets.planet === destination.name ? "activePlanet" : ""}>{destination.name}</span>
+                                <span key={uuidv4()}  onClick = {() => handleClick(destination)} className={planets.planet === destination.name ? "activePlanet" : ""}>{destination.name}</span>
                             )
                         })}
                     </div>
-
                     <h3>{planets.planet}</h3>
-
                     <p>
                         {planets.planetText}
                     </p>
