@@ -1,0 +1,831 @@
+@import './index.scss';
+$tab-para-size:19px;
+$mobile-para-size:13px;
+
+
+
+
+@media screen and (max-width:1170px) {
+    .App {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 170px 1fr;
+        grid-template-areas:
+            'header '
+            'content ';
+        height: 100vh;
+        overflow: scroll;
+    }
+    
+    // HEADER SECTION
+    .header {
+        align-items: center;
+        grid-template-columns: 20%  1fr;
+        height: 150px;
+        gap: 100px;
+    
+        & svg:nth-of-type(1) {
+            justify-self: center;
+            margin-top: -35%;
+        }
+    
+        & svg:nth-of-type(2) {
+            z-index: 2;
+            display: none;
+        }
+    
+        nav {
+            height: 100px;
+            align-self: flex-start;
+
+            ul {
+                width: 95%;
+    
+                li {
+    
+                    a {
+                        font-size: $primary-size;
+                        text-decoration: none;
+                        color: $primary-text;
+                        font-family: $nav-font;
+                        letter-spacing: 2px;
+    
+                        &:nth-of-type(1) {
+                            color: $primary-num;
+                            font-weight: 900;
+                        }
+    
+                    }
+    
+    
+                    .active{
+                        font-size: 16px;
+                        color: $primary-num;
+                    }
+                }
+            }
+        }
+    }
+
+    // HOME SECTION
+    #home-image{
+        background-image: url(./assets/home/background-home-tablet.jpg);
+    }
+
+    .home-container {
+        grid-template-columns:1fr;
+        grid-auto-rows: 1fr 1fr;
+        gap: 100px;
+        margin-top: 20px;
+        width: 100%;
+        justify-content: center;
+        
+
+        .home-text {
+            margin-left: 0px;
+            align-items: center;
+            width: 100%;
+            @include flex($justify-content-default: space-evenly);
+
+            h4 {
+                font-size: 27px;
+            }
+
+            h2 {
+                font-size: 8.2rem;
+            }
+
+            p {
+                width: 80%;
+                font-size: $tab-para-size;
+                line-height: 28px;
+                text-align: center;
+            }
+        }
+
+        .home-explore {
+            align-items:flex-start;
+
+            a {
+                width: 260px;
+                height: 260px;
+                font-size: 34px;
+
+                &:hover {
+                    box-shadow: 0 8px 40px 0 white;
+                    width: 245px;
+                    height: 245px;
+                }
+            }
+        }
+    }
+
+
+    //Destinations Section
+    #destination-image{
+        background-image: url(./assets/destination/background-destination-tablet.jpg);
+    }
+
+    .Destinations{
+        grid-template-columns: 0px 1fr;
+    }
+    
+    .destinations-container{    
+        grid-template-rows: 90px 1fr;
+
+        .pick-destination{
+            align-items: flex-start;
+            justify-content: center;
+            
+            & span{
+                font-size: 27px;
+            }
+            & p{
+                font-size: 27px;
+            }
+        }
+    
+        .destination-cover{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 450px 1fr;
+       
+            .image-container{
+                padding-left: 0px;
+                padding-top: 0px;
+                @include flex-center(center, flex-start);
+
+                img {
+                    width: 350px;
+                    height:350px;
+                }
+            }
+    
+            .planet-details{
+                width: 100%;
+                grid-template-rows: 40px 150px 100px 90px ;
+                
+                .planet-nav{
+                    width: 100%;
+                    justify-content: space-evenly;
+
+                    span{
+                        font-size: 20px;
+                    }
+                
+                }
+
+                h3{
+                    font-size: 6.2rem;
+                    @include flex-center;
+
+                }
+
+                p{
+                    font-size: $tab-para-size;
+                    padding: 0 20px;
+                    text-align: center;
+                    line-height: 35px;
+                }
+
+                svg{
+                    margin-top: 45px;
+                    width: 100%;
+                    padding: 0 10px;
+                    height: 0.5px;
+                    background-color: unset;
+                }
+
+                .distance-time{
+                    flex-direction: column;
+                    gap: 50px;
+
+                    .distance,
+                    .time{
+                        @include flex-center($align-items-center:center);
+                        flex-direction: column;
+                        gap: 7px;
+
+                        & span:nth-of-type(1){
+                            font-size: 20px;
+                        }
+                        
+                        & span:nth-of-type(2){
+                            font-size: 36px;
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+
+    //Crew Section
+    #crew-image{
+        background-image: url(./assets/crew/background-crew-tablet.jpg);
+    }
+    .Crew{
+        // @extend %navs-shared;
+        grid-template-columns: 0px 1fr;
+    }
+    
+    .crew-container{
+        grid-template-rows: 90px 1fr;
+
+        .meet-crew{
+            justify-content: center;
+            
+            span{
+                font-size: 27px;
+            }
+
+            p{
+                font-size: 27px;
+            }
+        }
+    
+        .crew-cover{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            'image'
+            'info';
+            grid-template-rows: 450px 1fr;
+            
+            .crew-info{
+                grid-area: info;
+                width: 100%;
+                grid-template-rows: 50px 65px 90px 80px;
+                h3{
+                    font-size: 28px;
+                    text-align: center;
+                }
+
+                h2{
+                    font-size:2.2rem;
+                    text-align: center;
+                }
+
+                p{
+                    width: 100%;
+                    line-height: 32px;
+                    font-size: $tab-para-size;
+                    padding: 0 20px;
+                    text-align: center;
+                }
+
+                nav{
+                    width: 35%;
+                    justify-content: space-evenly;
+                    margin: 0 auto;
+                    position: relative;
+                    top: -290px;
+                }
+            }
+
+
+            .crew-personnel{
+                grid-area: image;
+                margin-top: 0px;
+                justify-content: center;
+                align-items: flex-start;
+                img{
+                    width: 350px;
+                    height: 350px;
+                    
+                }
+            }
+
+            
+        
+        }
+    }
+
+
+    //Technology Section
+    #tech-image{
+        background-image: url(./assets/technology/background-technology-tablet.jpg);
+    }
+    .Technology{
+        grid-template-columns: 0px 1fr;
+        margin-top: 0px;
+    }
+
+    .technology-container{
+        grid-template-rows: 90px 1fr;
+
+        .space-launch{
+            justify-content: center;
+
+
+            span{
+                font-size: 27px;
+            }
+
+            p{
+                font-size: 27px;
+            }
+        }
+
+        .technology-cover{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            'imageTech'
+            'navTech'
+            'infoTech';
+            grid-template-rows: 390px 100px 1fr;
+
+            nav{
+                grid-area: navTech;
+                width: 50%;
+                margin: 0 auto;
+                height: 60px;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                
+                span{
+                    width: 40px;
+                    height: 40px;
+                    font-size: 17px;
+                }
+            }
+
+            .cover{
+                grid-area: infoTech;
+                width: 100%;
+                grid-template-rows: 40px 60px 1fr;
+
+                span{
+                    color: rgb(128, 139, 152);
+                    font-size: 15px;
+                    text-align: center;
+                }
+
+                h3{
+                    font-size:2rem;
+                    text-align: center;
+                }
+
+                p{
+                    width: 100%;
+                    padding: 0 20px;
+                    text-align: center;
+                    font-size: $tab-para-size;
+                    line-height: 32px;
+                }
+            }
+
+            .space-craft{
+                grid-area: imageTech;
+                margin-top: 0px; 
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                img{
+                    width: 100%;
+                    height: 350px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:620px) {
+    .header {
+        grid-template-columns: 12%  1fr;
+        gap: 90px;
+    
+        & svg:nth-of-type(1) {
+            margin-top: -40%;
+        }
+    
+    
+        nav {
+            height: 100px;
+            align-self: flex-start;
+
+            ul {
+                width: 95%;
+    
+                li {
+    
+                    a {
+                        font-size: 13px;
+                        letter-spacing: 0px;
+    
+                        &:nth-of-type(1) {
+                            color: $primary-num;
+                            font-weight: 900;
+                        }
+    
+                    }
+    
+    
+                    .active{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .home-container{
+        .home-text{
+            h4 {
+                font-size: 20px;
+            }
+    
+            h2 {
+                font-size: 6.8rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width:425px) {
+
+    .App {
+        grid-template-columns: 1fr;
+        grid-template-rows: 130px 1fr;
+        grid-template-areas:
+            'header'
+            'content';
+        max-width: 100%;
+        overflow: scroll;
+        height: 100vh;
+    }
+
+
+    .header {
+        grid-area: header;
+        display: grid;
+        align-items: center;
+        grid-template-columns: 75px 1fr;
+        grid-template-rows: 100px 1fr;
+        height: 100px;
+        width: 100%;
+    
+        & svg:nth-of-type(1) {
+            justify-self: center;
+            margin-left: 2px;
+        }
+    
+        & svg:nth-of-type(2) {
+            display: none;
+        }
+
+        & svg:nth-of-type(3) {
+            display: flex;
+            justify-self: flex-end;
+            margin-right: 11px;
+            margin-top:-20px; 
+        }
+    
+        nav {
+            @include flex;
+            align-items: unset;
+            height: 200px;
+            width: 100vw;            
+            position: relative;
+            transition: all .5s ease;
+            top: -300px;    
+            margin-top: -120px;
+            
+            ul {
+                @include flex($justify-content-default: space-around);
+                flex-direction: column;
+                align-items: center;
+    
+                a {
+                    font-size: 12px;
+                }
+
+
+                .active{
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    // HOME SECTION
+    #home-image{
+        background-image: url(./assets/home/background-home-mobile.jpg);
+    }
+
+    .home-container {
+        display: grid;
+        grid-template-columns:1fr;
+        grid-auto-rows: 1fr 100px;
+        margin-top: unset;
+
+        .home-text {
+            margin-left: unset;
+            display: flex;
+            width:100%;
+            height: 250px;
+            @include flex($justify-content-default:space-around);
+            align-items: center;
+
+            h4 {
+                font-size: 15px;
+            }
+
+            h2 {
+                letter-spacing: 5px;
+                font-size: 4.5rem;
+            }
+
+            p {
+                font-size: $mobile-para-size;
+                width: 95%;
+                line-height: 25px;
+                text-align: center
+            }
+        }
+
+        .home-explore {
+            @include flex;
+            align-items: center;
+
+            a {
+                width: 190px;
+                height: 190px;
+                @include flex;
+                font-size: 18px;
+            }
+        }
+    }
+
+    //Destinations Section
+
+    #destination-image{
+        background-image: url(./assets/destination/background-destination-mobile.jpg);
+    }
+
+    .Destinations{
+        @extend %navs-shared;
+        grid-template-columns: 0px 1fr;
+    }
+
+    .destinations-container{
+        grid-template-rows: 90px 1fr;
+
+        .pick-destination{
+            justify-content: center;
+            & span{
+                font-size: 18px;
+
+            }
+            & p{
+                font-size: 18px;
+            }
+        }
+
+        .destination-cover{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 270px 1fr;
+    
+            .image-container{
+                padding-left: 0px;
+                padding-top: 0px;
+                @include flex-center($align-items-center:flex-start);
+
+                img {
+                    width: 200px;
+                    height:200px;
+                }
+            }
+
+            .planet-details{
+                width: 100%;
+                
+                .planet-nav{
+                    width: 100%;
+                    justify-content: space-evenly;
+
+                    span{
+                        font-size: $mobile-para-size;
+                    }
+                
+                }
+
+                h3{
+                    font-size: 3.7rem;
+                    @include flex-center();
+                }
+
+                p{
+                    font-size: $mobile-para-size;
+                    padding: 0 10px;
+                    text-align: center;
+                    line-height: 26px;
+                }
+
+                svg{
+                    margin-top: 45px;
+                    width: 100%;
+                    padding: 0 10px;
+                    height: 0.5px;
+                    background-color: unset;
+                }
+
+                .distance-time{
+                    flex-direction: column;
+                    gap: 50px;
+
+                    .distance,
+                    .time{
+                        flex-direction: column;
+                        gap: 5px;
+
+                        & span:nth-of-type(1){
+                            font-size: $mobile-para-size;
+                        }
+                        
+                        & span:nth-of-type(2){
+                            font-size: 26px;
+                           
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+
+
+    //Crew Section
+
+    #crew-image{
+        background-image: url(./assets/crew/background-crew-mobile.jpg);
+    }
+
+    .Crew{
+        grid-template-columns: 0px 1fr;
+    }
+
+    .crew-container{
+        grid-template-rows: 90px 1fr;
+
+        .meet-crew{
+            justify-content: center;
+            
+            span{
+                font-size: 18px;
+            }
+
+            p{
+                font-size: 18px;
+
+            }
+        }
+
+        .crew-cover{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            'image'
+            'info';
+            grid-template-rows: 1fr 1fr;
+            
+            .crew-info{
+                grid-area: info;
+                width: 100%;
+                grid-template-rows: 40px 50px 90px 80px;
+                h3{
+                    font-size: 21px;
+                    text-align: center;
+                    color: rgb(128, 139, 152);
+                }
+
+                h2{
+                    font-size:1.4rem;
+                    text-align: center;
+                }
+
+                p{
+                    width: 100%;
+                    line-height: 24px;
+                    font-size: $mobile-para-size;
+                    padding: 0 10px;
+                    text-align: center;
+                }
+
+                nav{
+                    width: 40%;
+                    justify-content: space-evenly;
+                    margin: 0 auto;
+                    position: relative;
+                    top: -250px;
+                }
+            }
+
+
+            .crew-personnel{
+                grid-area: image;
+                margin-top: 0px;
+                img{
+                    width: 200px;
+                    height: 200px;                   
+                }
+            }
+
+            
+        
+        }
+    }
+
+
+
+    // Technology Section
+
+    #tech-image{
+        background-image: url(./assets/technology/background-technology-mobile.jpg);
+    }
+    .Technology{
+        grid-template-columns: 0px 1fr;
+        margin-top: -20px;
+    }
+
+    .technology-container{
+        grid-template-rows: 90px 1fr;
+
+        .space-launch{
+            justify-content: center;
+
+
+            span{
+                font-size: 18px;
+            }
+
+            p{
+                font-size: 18px;
+            }
+        }
+
+        .technology-cover{
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-areas: 
+            'imageTech'
+            'navTech'
+            'infoTech';
+            grid-template-rows: 220px 70px 1fr;
+
+            nav{
+                grid-area: navTech;
+                height: 60px;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                
+                span{
+                    width: 40px;
+                    height: 40px;
+                    font-size: 17px;
+                }
+            }
+
+            .cover{
+                grid-area: infoTech;
+                width: 100%;
+                grid-template-rows: 30px 50px 1fr;
+
+                span{
+                    color: rgb(128, 139, 152);
+                    font-size: 14px;
+                    text-align: center;
+                }
+
+                h3{
+                    font-size:1.7rem;
+                    text-align: center;
+
+                }
+
+                p{
+                    width: 100%;
+                    text-align: center;
+                    line-height: 23px;
+                    font-size: $mobile-para-size;
+                }
+            }
+
+            .space-craft{
+                grid-area: imageTech;
+                margin-top: 0px; 
+                img{
+                    width: 100%;
+                    height: 200px;
+                }
+            }
+        }
+    }
+}

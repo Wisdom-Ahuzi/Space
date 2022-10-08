@@ -7,7 +7,7 @@ const Header = ({idSet}) => {
     const [dropDown,setDropDown] = useState('');
 
     const handleDropDown = () => {
-        if (dropDown == '') {
+        if (dropDown === '') {
             setDropDown('dropDown')
         }else{
             setDropDown('')
