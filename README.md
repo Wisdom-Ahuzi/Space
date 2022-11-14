@@ -70,7 +70,8 @@ Users should be able to:
         position: relative;
     }
 ```
-```js
+```js![DesktopView](https://user-images.githubusercontent.com/93778975/201756945-dea4e7e0-6a95-4c0d-ad06-36639835d161.jpeg)
+
       {destinationsData.map(destination => {
           return (
               <span key={uuidv4()} onClick={() => handleClick(destination)} className={planets.planet === destination.name ? "activePlanet" : ""}>{destination.name}</span>
